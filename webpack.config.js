@@ -1,52 +1,66 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const  HtmlwebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlwebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: './src/javascripts/main.js',
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'javascripts/main.js',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.(png|jpg)/,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'images/[name][ext]'
-                },
-                use: [
-                    // {
-                    //     loader: 'file-loader',
-                    //     options: {
-                    //         esModule: false,
-                    //         name: 'images/[name].[ext]',
-                    //     },
-                    // },
-                ],
-            },
+  entry: "./src/javascripts/main.js",
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "javascripts/main.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+          },
         ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: './stylesheets/main.css',
-        }),
-        new HtmlwebpackPlugin({
-            template: './src/templates/index.html',
-        }),
-        new CleanWebpackPlugin(),
+      },
+      {
+        test: /\.(png|jpg)/,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        },
+        use: [
+          // {
+          //     loader: 'file-loader',
+          //     options: {
+          //         esModule: false,
+          //         name: 'images/[name].[ext]',
+          //     },
+          // },
+        ],
+      },
+      {
+        test: /\.pug/,
+        use: [
+          {
+            loader: "html-loader",
+          },
+          {
+            loader: "pug-html-loader",
+            options: {
+              pretty: true,
+            },
+          },
+        ],
+      },
     ],
-}
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./stylesheets/main.css",
+    }),
+    new HtmlwebpackPlugin({
+      template: "./src/templates/index.pug",
+    }),
+    new CleanWebpackPlugin(),
+  ],
+};
