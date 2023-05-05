@@ -60,6 +60,11 @@ module.exports = {
     }),
     new HtmlwebpackPlugin({
       template: "./src/templates/index.pug",
+      filename: "index.html",
+    }),
+    new HtmlwebpackPlugin({
+      template: "./src/templates/access.pug",
+      filename: "access.html",
     }),
     new CleanWebpackPlugin(),
   ],
