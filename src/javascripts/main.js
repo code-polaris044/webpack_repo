@@ -1,6 +1,6 @@
-import my from './my.js';
-import '../stylesheet/main.css';
+import my from "./my.js";
+import "../stylesheet/main.scss";
 
-console.log('webpack!');
+console.log("webpack!");
 
 my();
