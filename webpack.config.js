@@ -4,6 +4,8 @@ const HtmlwebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  mode: "development",
+  devtool: "source-map",
   devServer: {
     static: path.resolve(__dirname, "src"),
   },
@@ -15,6 +17,18 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js/,
+        exclude: /node_moudeules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+        ],
+      },
+      {
         test: /\.(css|sass|scss)/,
         use: [
           {
@@ -22,6 +36,9 @@ module.exports = {
           },
           {
             loader: "css-loader",
+            options: {
+              sourceMap: false,
+            },
           },
           {
             loader: "sass-loader",
