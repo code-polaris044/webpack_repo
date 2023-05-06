@@ -23,7 +23,10 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-env"],
+              presets: [
+                ["@babel/preset-env", { targets: "> 0.25%, not dead" }],
+                "@babel/preset-react",
+              ],
             },
           },
         ],
@@ -46,12 +49,21 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg)/,
+        test: /\.(png|jpg|jpeg)/,
         type: "asset/resource",
         generator: {
           filename: "images/[name][ext]",
         },
         use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+            },
+          },
           // {
           //     loader: 'file-loader',
           //     options: {
