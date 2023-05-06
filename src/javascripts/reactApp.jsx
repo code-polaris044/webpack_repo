@@ -6,7 +6,7 @@ import Alert from "./Alert.tsx";
 const App = (props) => {
   return (
     <div style={{ color: "green" }}>
-      Hello, React App!
+      React App!
       <Alert message="Success! ts" />
     </div>
   );

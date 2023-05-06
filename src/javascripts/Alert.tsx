@@ -1,11 +1,14 @@
 import * as React from "react";
+import styled from "styled-components";
+
+const AlertContainer = styled.div`
+  background-color: brown;
+  padding: 1em;
+  color: skyblue;
+`;
 
 const Alert: React.FC<{ message: string }> = ({ message }) => {
-  return (
-    <div style={{ color: "skyblue", padding: "1em", backgroundColor: "brown" }}>
-      {message}
-    </div>
-  );
+  return <AlertContainer>{message}</AlertContainer>;
 };
 
 export default Alert;
