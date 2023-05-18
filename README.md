@@ -1,4 +1,4 @@
-このリモートリポジトリは、webpack5のテンプレートです。
+このリモートリポジトリは、webpack5のテンプレートです。<br>
 (This remote repository is a webpack5 template.)
 
 ・[webpack](https://webpack.js.org/)
