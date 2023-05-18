@@ -1,3 +1,6 @@
-# webpack_repo
+このリモートリポジトリは、webpack5のテンプレートです。
+(This remote repository is a webpack5 template.)
 
-https://code-polaris044webpack5.netlify.app/
+・[webpack](https://webpack.js.org/)
+
+[デモ](https://code-polaris044webpack5.netlify.app/)
